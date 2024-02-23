@@ -1,8 +1,6 @@
-Rails.application.routes.draw do
-  get '/home'  => 'static_pages#home'
-  get '/about' => 'static_pages#about'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+# frozen_string_literal: true
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+Rails.application.routes.draw do
+  root 'static_pages#home'
+  get '/about', to: 'static_pages#about'
 end

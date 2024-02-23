@@ -1,0 +1,106 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* mixin, etc. */
+
+$font-main-color: #333;
+
+
+/* universal */
+
+body {
+  padding-top: 80px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+  h1{
+    margin-bottom: 30px;
+  }
+}
+
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+font-size: 1.2em;
+letter-spacing: -1px;
+margin-bottom: 30px;
+text-align: center;
+font-weight: normal;
+color: $font-main-color;
+}
+
+p {
+  font-size: 1.2em;
+  line-height: 1.7em;
+}
+
+
+/* header */
+
+#logo {
+  float: left;
+  font-size: 2.0em;
+  color: #fff;
+  margin: 4px 8px;
+  &:hover{
+    text-decoration: none;
+  }
+}
+
+
+/* login */
+
+.login {
+  padding-top: 40px;  
+  p {
+  font-size: 0.8em;
+  color: $font-main-color;
+  margin-top: 10px;
+  }
+}
+
+
+/* footer */
+
+footer {
+  border-top: 1px solid #ccc;
+  margin-top: 20px;
+  padding-top: 10px;
+  color: $font-main-color;
+  small {
+    float: left;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin: 0px 10px;
+      text-decoration: none;
+    }
+  }
+}
+
+
+
