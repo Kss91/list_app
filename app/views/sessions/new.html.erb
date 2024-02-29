@@ -10,6 +10,11 @@
       <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %>
 
+      <%= f.label :remember_me, class: 'checkbox inline' do %>
+        <%= f.check_box :remember_me %>
+        <span>ログイン情報を記憶する</span>
+      <% end %>
+
       <%= f.submit 'ログイン', class: 'btn btn-primary' %>
     <% end %>
     <p>未登録の場合こちらから<%= link_to '新規作成', signup_path %></p>
