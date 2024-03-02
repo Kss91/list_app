@@ -72,7 +72,6 @@ p {
   }
 }
 
-
 /* login */
 
 .login {
@@ -207,4 +206,16 @@ input {
 
 .dropdown-menu.active {
   display: block;
+}
+
+/* Users index */
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 15px 0;
+    border-bottom: 1px solid $gray-lighter;
+  }
 }
