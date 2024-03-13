@@ -14,7 +14,7 @@ module SessionsHelper
     cookies.permanent[:remember_token] = user.remember_token
   end
 
-  # 記憶トークンのcookieに対応するユーザーを返す
+  # 現在ログイン中のユーザーを返す（いる場合）
   def current_user # rubocop:disable Metrics/MethodLength
     if (user_id = session[:user_id])
       user = User.find_by(id: user_id)
@@ -23,7 +23,7 @@ module SessionsHelper
       end
     elsif (user_id = cookies.encrypted[:user_id])
       user = User.find_by(id: user_id)
-      if user && user.authenticated?(cookies[:remember_token])
+      if user && user.authenticated?(:remember, cookies[:remember_token])
         log_in user
         @current_user = user
       end

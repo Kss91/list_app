@@ -63,6 +63,6 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'ダイジェストが存在しない場合の認証テスト' do
-    assert_not @user.authenticated?('')
+    assert_not @user.authenticated?(:remember, '')
   end
 end
