@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_24_081120) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_26_080504) do
+  create_table "lists", force: :cascade do |t|
+    t.string "content"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "created_at"], name: "index_lists_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_lists_on_user_id"
+  end
+
   create_table "relationships", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "followed_id"
@@ -37,4 +46,5 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_24_081120) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "lists", "users"
 end
