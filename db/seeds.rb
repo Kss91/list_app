@@ -10,7 +10,7 @@ User.create!(name:  "Example User",
 # 追加のユーザーをまとめて生成する
 50.times do |n|
   name  = Faker::Name.name
-  email = "example-#{n+1}@railstutorial.org"
+  email = "testuser-#{n+1}@test.com"
   password = "password"
   User.create!(name:  name,
                email: email,
@@ -19,3 +19,11 @@ User.create!(name:  "Example User",
                activated: true,
                activated_at: Time.zone.now)
 end
+
+# ユーザーフォローのリレーションシップを作成
+users = User.all
+user  = users.first
+following = users[2..40]
+followers = users[3..30]
+following.each { |followed| user.follow(followed) }
+followers.each { |follower| follower.follow(user) }

@@ -4,8 +4,18 @@
   <aside class="col-md-4">
     <section class="user_info">
       <h3><%= @user.name %></h3>
-      <h3><%= @user.email %></h3>
+    </section>
+    <section class="stats">
+      <%= render 'shared/stats' %>
+    </section>
+  </aside>
+  <aside class="col-md-8">
+    <section class="user_follow">
+      <%= render 'follow_form' %>
+    </section>
+    <section>
+      <p>ここにユーザーが所有するチーム情報を追加していく</p>
+      <p>チームに参加するためのリクエストを行えるようにする</p>
     </section>
   </aside>
 </div>
-<p>my Lists</p>
