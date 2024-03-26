@@ -79,4 +79,12 @@ class UserTest < ActiveSupport::TestCase
     michael.follow(michael)
     assert_not michael.following?(michael)
   end
+
+  test 'ユーザーを削除した際にListも削除する' do
+    @user.save
+    @user.lists.create!(content: 'Lorem ipsum')
+    assert_difference 'List.count', -1 do
+      @user.destroy
+    end
+  end
 end
