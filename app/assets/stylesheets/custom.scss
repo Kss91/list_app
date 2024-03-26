@@ -160,6 +160,45 @@ aside {
   }
 }
 
+.stats {
+  overflow: auto;
+  margin-top: 0;
+  padding: 0;
+  a {
+    float: left;
+    padding: 0 10px;
+    border-left: 1px solid $gray-lighter;
+    color: gray;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+      color: blue;
+    }
+  }
+  .users_info {
+    margin-top: 10px;
+    a {
+      display: flex;
+      &:first-child {
+        padding-left: 10px;
+        border-left: 1px solid $gray-lighter;
+      }
+    }
+  }
+}
+
+.teams {
+  overflow: auto;
+  margin-top: 10px;
+  h2 {
+  text-align: left;
+  }
+}
+
+
 /* forms */
 
 input, textarea, select, .uneditable-input {

@@ -1,0 +1,23 @@
+<% provide(:title, @title) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h3><%= @user.name %></h3>
+      <span><%= link_to 'プロフィール詳細', @user %></span>
+    </section>
+    <section class="stats">
+      <%= render 'shared/stats' %>
+      <% if @users.any? %>
+        <div class="users_info">
+          <p><%= @title %></p>
+          <% @users.each do |user| %>
+            <br><%= link_to user.name, user %>
+          <% end %>
+        </div>
+      <% end %>
+    </section>
+  </aside>
+  <aside class="col-md-8">
+    <h3>ここにはフォロー/フォロワーユーザー（@users）のチーム一覧を表示</h3>
+  </aside>
+</div>

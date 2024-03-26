@@ -1,20 +1,39 @@
 <% provide(:title, 'Home') %>
 
-<div class="center jumbotron">
-  <h1>Welcome to List App</h1>
-  <p>このサイトは簡単なメモを『リストアップ』するアプリケーションです</p>
-  <p>パートナーや友達とリストを共有しすることができます</p>
+<% if logged_in? %>
+  <div class="row">
+    <div class="col-md-4">
+      <section class="user_info">
+        <h3><%= current_user.name %></h3>
+      </section>
+      <section class="stats">
+        <%= render 'shared/stats' %>
+      </section>
+      <section class="teams">
+        <h2>ここにチーム情報を追加していく</h2>
+      </section>
+    </div>
+    <div class="list">
+      <h2>ここにカテゴリ→コンテンツを入力していく</h2>
+    </div>
+  </div>
+<% else %>
+  <div class="center jumbotron">
+    <h1>Welcome to List App</h1>
+    <p>このサイトは簡単なメモを『リストアップ』するアプリケーションです</p>
+    <p>パートナーや友達とリストを共有しすることができます</p>
 
-  <div class="container">
-    <div class="row login">
-      <div class="col-sm-6">
-        <%= link_to "ログイン", login_path, class: "btn btn-success btn-lg" %>
-        <p>登録済みの方はこちらからログイン</p>
-      </div>
-      <div class="col-sm-6">
-        <%= link_to "新規登録", signup_path, class: "btn btn-primary btn-lg" %>
-        <p>未登録の方はこちらから新規作成</p>
+    <div class="container">
+      <div class="row login">
+        <div class="col-sm-6">
+          <%= link_to "ログイン", login_path, class: "btn btn-success btn-lg" %>
+          <p>登録済みの方はこちらからログイン</p>
+        </div>
+        <div class="col-sm-6">
+          <%= link_to "新規登録", signup_path, class: "btn btn-primary btn-lg" %>
+          <p>未登録の方はこちらから新規作成</p>
+        </div>
       </div>
     </div>
   </div>
-</div>
+<% end %>
