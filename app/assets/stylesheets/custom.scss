@@ -258,3 +258,28 @@ input {
     border-bottom: 1px solid $gray-lighter;
   }
 }
+
+/* list */
+
+.list {
+  border: 1px solid #ccc;
+  margin-top: 20px;
+}
+
+.list-title {
+  border-bottom: 1px solid #ccc;
+  background-color: #eee;
+  padding: 10px;
+  .list-content{
+    font-size: large;
+  }
+  .timestamp {
+    font-size: smaller;
+    color: #888;
+  }
+}
+
+.list-item {
+  display: block;
+  padding: 10px 10px;
+}
