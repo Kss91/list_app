@@ -20,6 +20,14 @@ User.create!(name:  "Example User",
                activated_at: Time.zone.now)
 end
 
+users = User.order(:created_at).take(6)
+5.times do
+  content = Faker::Lorem.sentence(word_count: 2)
+  users.each do |user|
+    user.lists.create!(content: content)
+  end
+end
+
 # ユーザーフォローのリレーションシップを作成
 users = User.all
 user  = users.first

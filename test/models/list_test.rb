@@ -20,8 +20,8 @@ class ListTest < ActiveSupport::TestCase
     assert_not @list.valid?
   end
 
-  test 'contentの文字数制限20を超えていないか' do
-    @list.content = 'a' * 21
+  test 'contentの文字数制限50を超えていないか' do
+    @list.content = 'a' * 51
     assert_not @list.valid?
   end
 
