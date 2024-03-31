@@ -14,8 +14,13 @@
       </section>
     </div>
     <div class="col-md-8">
-      <h2>リスト一覧</h2>
-      <%= render @lists %>
+      <section class="list-form">
+        <%= render 'shared/list_form' %>
+      </section>
+      <section class="list-show">
+        <h2>リスト一覧</h2>
+        <%= render @lists %>
+      </section>
     </div>
   </div>
 <% else %>
