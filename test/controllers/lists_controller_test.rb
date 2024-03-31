@@ -19,4 +19,14 @@ class ListsControllerTest < ActionDispatch::IntegrationTest
     assert_response :see_other
     assert_redirected_to login_url
   end
+
+  test '別のユーザーのリストを削除しようとした場合、ルートへリダイレクト' do
+    log_in_as(users(:michael))
+    list = lists(:ants)
+    assert_no_difference 'List.count' do
+      delete list_path(list)
+    end
+    assert_response :see_other
+    assert_redirected_to root_url
+  end
 end

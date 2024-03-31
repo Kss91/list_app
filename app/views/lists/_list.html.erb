@@ -1,7 +1,12 @@
 <div class="list" id="list-<%= list.id %>">
   <div class="list-title">
     <span class="list-content"><%= link_to list.content, '#' %></span> <!-- リンク先はlistを編集可能な詳細ページを作成予定 -->
-    <span class="timestamp">最終更新：<%= list.updated_at %></span>
+    <span class="timestamp">
+      最終更新：<%= list.updated_at %>
+      <% if current_user?(list.user) %>
+        <%= link_to 'リスト削除', list, data: { 'turbo-method': :delete, turbo_confirm: '本当に削除しますか？' } %>
+      <% end %>
+    </span>
   </div>
   <div class="list-item">
     <span class="item">

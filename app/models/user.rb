@@ -95,6 +95,11 @@ class User < ApplicationRecord
   def following?(other_user)
     following.include?(other_user)
   end
+
+  def feed
+    List.where('user_id = ?', id)
+  end
+
   private
 
   def downcase_email

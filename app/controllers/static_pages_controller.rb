@@ -1,6 +1,9 @@
 class StaticPagesController < ApplicationController
   def home
-    @lists = current_user.lists.paginate(page: params[:page]) if current_user
+    if logged_in?
+    @list  = current_user.lists.build if logged_in?
+    @lists = current_user.lists.paginate(page: params[:page])
+    end
   end
 
   def about
