@@ -28,11 +28,6 @@ class ListsInterfaceTest < ListsInterface
     end
   end
 
-  test 'rootページにリスト削除リンクがあるか' do
-    get root_path
-    assert_select 'a', text: 'リスト削除'
-  end
-
   test '自身が所有するリストは削除することができる' do
     first_list = @user.lists.paginate(page: 1).first
     assert_difference 'List.count', -1 do

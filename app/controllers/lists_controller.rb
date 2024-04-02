@@ -1,6 +1,6 @@
 class ListsController < ApplicationController
-  before_action :logged_in_user, only: [:create, :destroy]
-  before_action :correct_user,   only: :destroy
+  before_action :logged_in_user, only: [:create, :destroy, :edit, :update]
+  before_action :correct_user,   only: [:destroy, :edit, :update]
 
   def create
     @list = current_user.lists.build(list_params)
@@ -17,6 +17,20 @@ class ListsController < ApplicationController
     @list.destroy
     flash[:success] = 'リストを削除しました'
     redirect_to root_url
+  end
+
+  def edit
+    @list = List.find(params[:id])
+  end
+
+  def update
+    @list = List.find(params[:id])
+    if @list.update(list_params)
+      flash[:success] = 'リスト名を修正しました'
+      redirect_to root_url
+    else
+      render 'edit', status: :unprocessable_entity
+    end
   end
 
   private
