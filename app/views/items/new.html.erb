@@ -1,6 +1,7 @@
-<%= form_with model: @item do |f| %>
+<%= form_with model: [@list, @item] do |f| %>
   <div class="field">
     <%= f.text_field :content, placeholder: 'itemのタイトルを入力してください' %>
+    <%= f.hidden_field :list_id, value: @list.id %>
   </div>
   <%= f.submit 'item追加', class: 'btn btn-primary' %>
 <% end %>

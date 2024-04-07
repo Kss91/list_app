@@ -1,6 +1,5 @@
 <h2>リスト作成フォーム</h2>
-<%= form_with(model: @list) do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
+<%= form_with model: @list_new do |f| %>
   <div class="field">
     <%= f.text_field :content, placeholder: 'リストのタイトルを入力してください' %>
   </div>

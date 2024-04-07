@@ -1,0 +1,7 @@
+<%= form_with(model: [@list, @item]) do |f| %>
+<div class="field">
+  <%= f.text_field :content, placeholder: 'アイテムのタイトルを入力してください' %>
+  <%= f.hidden_field :list_id, value: @list.id %>
+</div>
+<%= f.submit 'アイテム作成', class: 'btn btn-primary' %>
+<% end %>
