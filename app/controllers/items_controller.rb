@@ -1,21 +1,22 @@
 class ItemsController < ApplicationController
   def create
-    @list = List.find(params[:id])
-    @item = @lists.new(item_params)
+    @item = Item.new(content: item_params[:content], list_id: item_params[:list_id])
     if @item.save
       flash[:success] = 'itemを追加しました'
-      redirect_to about_url
+    else
+      flash[:danger] = 'item作成に失敗しました'
     end
+    redirect_to root_url
   end
 
   def index
-    @lists = List.paginate(page: params[:page])
+    @list = List.find(params[:list_id])
   end
 
   private
 
   def item_params
-    params.require(:item).permit(:content)
+    params.require(:item).permit(:content, :list_id)
   end
 
 end
