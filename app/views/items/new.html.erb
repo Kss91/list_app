@@ -1,0 +1,6 @@
+<%= form_with model: @item do |f| %>
+  <div class="field">
+    <%= f.text_field :content, placeholder: 'itemのタイトルを入力してください' %>
+  </div>
+  <%= f.submit 'item追加', class: 'btn btn-primary' %>
+<% end %>

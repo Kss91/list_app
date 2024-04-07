@@ -1,18 +1,18 @@
 <div class="list" id="list-<%= list.id %>">
   <div class="list-title">
-    <span class="list-content"><%= link_to list.content, edit_list_path(list.id) %></span> <!-- リンク先はlistを編集可能な詳細ページを作成予定 -->
+    <span class="list-content"><%= link_to list.content, edit_list_path(list.id) %></span>
     <span class="timestamp">
       最終更新：<%= list.updated_at %>
     </span>
   </div>
   <div class="list-item">
     <span class="item">
-      <p>items</p>
       <li>小項目であるitemを</li>
       <li>このエリアで表示予定</li>
       <% 5.times do |i| %>
         <li><%= i %></li>
       <% end %>
+      <%= link_to 'item追加', new_item_path %>
     </span>
   </div>
 </div>
