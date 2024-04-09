@@ -13,7 +13,7 @@ class ListsInterfaceTest < ListsInterface
     #assert_select 'div.pagination' ページネーション追加後に再度テスト
   end
 
-  test '不正じな情報でリスト作成に失敗した際、エラーが表示される' do
+  test '不正な情報でリスト作成に失敗した際、エラーが表示される' do
     assert_no_difference 'List.count' do
       post lists_path, params: { list: { content: ' ' } }
     end

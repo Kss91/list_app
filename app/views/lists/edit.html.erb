@@ -4,8 +4,11 @@
   <div class="field">
     <%= f.text_field :content, placeholder: 'リストの新しいタイトルを入力してください' %>
   </div>
-  <%= f.submit 'リスト名　修正', class: 'btn btn-primary' %>
+  <%= f.submit 'リスト名 修正', class: 'btn btn-primary' %>
   <% if current_user?(@list.user) %>
     <%= link_to 'リスト削除', @list, data: { 'turbo-method': :delete, turbo_confirm: '本当に削除しますか？' }, class: 'btn btn-danger' %>
+  <% end %>
+  <% @list.items.each do |item| %>
+    <%= item.content %>
   <% end %>
 <% end %>
