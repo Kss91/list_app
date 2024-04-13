@@ -8,7 +8,10 @@
   <div class="list-item">
     <span class="item">
         <% list.items.each do |item| %>
-          <li><%= item.content %></li>
+          <li>
+            <%= item.content %>
+            <%= link_to '(アイテム削除)', "/lists/#{item.list_id}/items/#{item.id}", data: { "turbo-method": :delete, turbo_confirm: "本当に削除しますか？" } %>
+          </li>
         <% end %>
         <%= form_with(model: [@list, @item]) do |f| %>
           <div class="field">
