@@ -9,6 +9,13 @@ class ItemsController < ApplicationController
     redirect_to root_url
   end
 
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+    flash[:success] = 'アイテムを削除しました'
+    redirect_to root_url
+  end
+
   def index
     @list = List.find(params[:list_id])
   end
