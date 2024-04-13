@@ -17,12 +17,7 @@
       <p>ここにユーザーが所有するチーム情報を追加していく</p>
       <p>チームに参加するためのリクエストを行えるようにする</p>
       <% if @user.lists.any? %>
-        <% @user.lists.each do |list| %>
-          <h3><%= list.content %></h3>
-          <% list.items.each do |item| %>
-            <p><%= item.content %></p>
-          <% end %>
-         <% end %>
+        <%= render @lists %>
       <% end %>
     </section>
   </aside>
