@@ -9,7 +9,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @list = List.find_by(user_id: @user.id)
     @lists = @user.lists.paginate(page: params[:page])
+    @item  = @list.items.build
   end
 
   def new
