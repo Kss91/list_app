@@ -2,7 +2,7 @@
 
 <% if logged_in? %>
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-3">
       <section class="user_info">
         <h3><%= current_user.name %></h3>
       </section>
@@ -13,7 +13,7 @@
         <h2>ここにチーム情報を追加していく</h2>
       </section>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-9">
       <section class="list-form">
         <%= render 'shared/list_form' %>
       </section>
